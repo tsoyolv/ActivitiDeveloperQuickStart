@@ -1,0 +1,2 @@
+For creating diagram you can use Eclipse plugin, or some case application. (https://habrahabr.ru/post/204686/)
+Application uses Bizagi modeler: http://www.bizagi.com//en/download-modeler-confirmation?dwl=d40fb20ffc91a0cbb20cb8f7c328a52ff42ff11d
