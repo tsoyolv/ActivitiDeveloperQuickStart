@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:activiti="http://activiti.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" typeLanguage="http://www.w3.org/2001/XMLSchema" expressionLanguage="http://www.w3.org/1999/XPath" targetNamespace="http://www.activiti.org/processdef">
+  <process id="process" isExecutable="true">
+    <startEvent id="startEvent" name="Start"></startEvent>
+    <userTask id="enterNameTask" name="Enter name" activiti:candidateGroups="managers">
+      <extensionElements>
+        <activiti:formProperty id="name_property" name="Name" type="string"></activiti:formProperty>
+      </extensionElements>
+    </userTask>
+    <exclusiveGateway id="decision" default="decisionToSignInSeqFlow"></exclusiveGateway>
+    <userTask id="registerTask" name="Register" activiti:candidateGroups="managers"></userTask>
+    <userTask id="signInTask" name="Sign In" activiti:candidateGroups="managers"></userTask>
+    <endEvent id="endEvent" name="End"></endEvent>
+    <sequenceFlow id="signInToEndSeqFlow" name="Sign In to End" sourceRef="signInTask" targetRef="endEvent"></sequenceFlow>
+    <sequenceFlow id="registerToSignInSeqFlow" name="Register to Sign In" sourceRef="registerTask" targetRef="signInTask"></sequenceFlow>
+    <sequenceFlow id="enterToDecisionSeqFlow" name="Enter to Decision" sourceRef="enterNameTask" targetRef="decision"></sequenceFlow>
+    <sequenceFlow id="startToEnterSeqFlow" name="Start to Enter" sourceRef="startEvent" targetRef="enterNameTask"></sequenceFlow>
+    <sequenceFlow id="decisionToSignInSeqFlow" name="Decision to Sign In" sourceRef="decision" targetRef="signInTask"></sequenceFlow>
+    <sequenceFlow id="decisionToRegisterSeqFlow" name="If user not registered" sourceRef="decision" targetRef="registerTask">
+      <conditionExpression xsi:type="tFormalExpression"><![CDATA[${name_property.equals("d")}]]></conditionExpression>
+    </sequenceFlow>
+  </process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_process">
+    <bpmndi:BPMNPlane bpmnElement="process" id="BPMNPlane_process">
+      <bpmndi:BPMNShape bpmnElement="startEvent" id="BPMNShape_startEvent">
+        <omgdc:Bounds height="30.0" width="30.0" x="75.0" y="260.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="enterNameTask" id="BPMNShape_enterNameTask">
+        <omgdc:Bounds height="80.0" width="100.0" x="210.0" y="235.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="decision" id="BPMNShape_decision">
+        <omgdc:Bounds height="40.0" width="40.0" x="435.0" y="255.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="registerTask" id="BPMNShape_registerTask">
+        <omgdc:Bounds height="80.0" width="100.0" x="405.0" y="30.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="signInTask" id="BPMNShape_signInTask">
+        <omgdc:Bounds height="80.0" width="100.0" x="600.0" y="235.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="endEvent" id="BPMNShape_endEvent">
+        <omgdc:Bounds height="28.0" width="28.0" x="810.0" y="261.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge bpmnElement="enterToDecisionSeqFlow" id="BPMNEdge_enterToDecisionSeqFlow">
+        <omgdi:waypoint x="310.0" y="275.0"></omgdi:waypoint>
+        <omgdi:waypoint x="435.0" y="275.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="signInToEndSeqFlow" id="BPMNEdge_signInToEndSeqFlow">
+        <omgdi:waypoint x="700.0" y="275.0"></omgdi:waypoint>
+        <omgdi:waypoint x="810.0" y="275.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="startToEnterSeqFlow" id="BPMNEdge_startToEnterSeqFlow">
+        <omgdi:waypoint x="105.0" y="275.0"></omgdi:waypoint>
+        <omgdi:waypoint x="210.0" y="275.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="decisionToRegisterSeqFlow" id="BPMNEdge_decisionToRegisterSeqFlow">
+        <omgdi:waypoint x="455.4512195121951" y="255.4512195121951"></omgdi:waypoint>
+        <omgdi:waypoint x="455.09732360097325" y="110.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="decisionToSignInSeqFlow" id="BPMNEdge_decisionToSignInSeqFlow">
+        <omgdi:waypoint x="474.50712902657983" y="275.49287097342017"></omgdi:waypoint>
+        <omgdi:waypoint x="600.0" y="275.1404247849745"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="registerToSignInSeqFlow" id="BPMNEdge_registerToSignInSeqFlow">
+        <omgdi:waypoint x="493.0487804878049" y="110.0"></omgdi:waypoint>
+        <omgdi:waypoint x="611.9512195121952" y="235.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</definitions>

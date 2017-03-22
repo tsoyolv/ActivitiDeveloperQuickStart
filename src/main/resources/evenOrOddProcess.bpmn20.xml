@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:activiti="http://activiti.org/bpmn"
+             xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI"
+             xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI"
+             typeLanguage="http://www.w3.org/2001/XMLSchema" expressionLanguage="http://www.w3.org/1999/XPath"
+             targetNamespace="http://www.activiti.org/processdef">
+    <process id="evenOrOddNumber" isExecutable="true">
+        <startEvent id="startEvent" name="Start"></startEvent>
+        <serviceTask id="generateServiceTask" name="Generate"
+                     activiti:class="com.olts.activity.evenoroddprocess.NumberGenerator"></serviceTask>
+        <exclusiveGateway id="sid-63E430B3-EA08-4563-891C-D38E04022825"></exclusiveGateway>
+        <serviceTask id="printEventNumberServiceTask" name="Print even number"
+                     activiti:expression="${printDigitService.printEven(execution)}"></serviceTask>
+        <sequenceFlow id="startToGenerate" sourceRef="startEvent" targetRef="generateServiceTask"></sequenceFlow>
+        <sequenceFlow id="generateToDecision" sourceRef="generateServiceTask"
+                      targetRef="sid-63E430B3-EA08-4563-891C-D38E04022825"></sequenceFlow>
+        <serviceTask id="printOddNumberServiceTask" name="Print odd number"
+                     activiti:expression="${printDigitService.printOdd(execution)}"></serviceTask>
+        <sequenceFlow id="decisionToOdd" sourceRef="sid-63E430B3-EA08-4563-891C-D38E04022825"
+                      targetRef="printOddNumberServiceTask">
+            <conditionExpression xsi:type="tFormalExpression">
+                <![CDATA[${generatedNumber % 2 != 0}]]></conditionExpression>
+        </sequenceFlow>
+        <sequenceFlow id="decisionToEven" sourceRef="sid-63E430B3-EA08-4563-891C-D38E04022825"
+                      targetRef="printEventNumberServiceTask">
+            <conditionExpression xsi:type="tFormalExpression">
+                <![CDATA[${generatedNumber % 2 == 0}]]></conditionExpression>
+        </sequenceFlow>
+        <endEvent id="endEvent" name="End"></endEvent>
+        <sequenceFlow id="evenToEnd" sourceRef="printEventNumberServiceTask" targetRef="endEvent"></sequenceFlow>
+        <sequenceFlow id="oddToEnd" sourceRef="printOddNumberServiceTask" targetRef="endEvent"></sequenceFlow>
+    </process>
+    <bpmndi:BPMNDiagram id="BPMNDiagram_process">
+        <bpmndi:BPMNPlane bpmnElement="evenOrOddNumber" id="BPMNPlane_process">
+            <bpmndi:BPMNShape bpmnElement="startEvent" id="BPMNShape_startEvent">
+                <omgdc:Bounds height="30.0" width="30.0" x="73.5" y="180.0"></omgdc:Bounds>
+            </bpmndi:BPMNShape>
+            <bpmndi:BPMNShape bpmnElement="generateServiceTask" id="BPMNShape_generateServiceTask">
+                <omgdc:Bounds height="80.0" width="100.0" x="210.0" y="155.0"></omgdc:Bounds>
+            </bpmndi:BPMNShape>
+            <bpmndi:BPMNShape bpmnElement="sid-63E430B3-EA08-4563-891C-D38E04022825"
+                              id="BPMNShape_sid-63E430B3-EA08-4563-891C-D38E04022825">
+                <omgdc:Bounds height="40.0" width="40.0" x="390.0" y="175.0"></omgdc:Bounds>
+            </bpmndi:BPMNShape>
+            <bpmndi:BPMNShape bpmnElement="printEventNumberServiceTask" id="BPMNShape_printEventNumberServiceTask">
+                <omgdc:Bounds height="80.0" width="100.0" x="360.0" y="30.0"></omgdc:Bounds>
+            </bpmndi:BPMNShape>
+            <bpmndi:BPMNShape bpmnElement="printOddNumberServiceTask" id="BPMNShape_printOddNumberServiceTask">
+                <omgdc:Bounds height="80.0" width="100.0" x="360.0" y="285.0"></omgdc:Bounds>
+            </bpmndi:BPMNShape>
+            <bpmndi:BPMNShape bpmnElement="endEvent" id="BPMNShape_endEvent">
+                <omgdc:Bounds height="28.0" width="28.0" x="585.0" y="181.0"></omgdc:Bounds>
+            </bpmndi:BPMNShape>
+            <bpmndi:BPMNEdge bpmnElement="decisionToOdd" id="BPMNEdge_decisionToOdd">
+                <omgdi:waypoint x="410.4263565891473" y="214.5736434108527"></omgdi:waypoint>
+                <omgdi:waypoint x="410.1544401544402" y="285.0"></omgdi:waypoint>
+            </bpmndi:BPMNEdge>
+            <bpmndi:BPMNEdge bpmnElement="generateToDecision" id="BPMNEdge_generateToDecision">
+                <omgdi:waypoint x="310.0" y="195.16611295681062"></omgdi:waypoint>
+                <omgdi:waypoint x="390.43333333333334" y="195.43333333333334"></omgdi:waypoint>
+            </bpmndi:BPMNEdge>
+            <bpmndi:BPMNEdge bpmnElement="oddToEnd" id="BPMNEdge_oddToEnd">
+                <omgdi:waypoint x="460.0" y="290.6084656084656"></omgdi:waypoint>
+                <omgdi:waypoint x="587.4651940891392" y="202.93399348366083"></omgdi:waypoint>
+            </bpmndi:BPMNEdge>
+            <bpmndi:BPMNEdge bpmnElement="decisionToEven" id="BPMNEdge_decisionToEven">
+                <omgdi:waypoint x="410.42" y="175.42"></omgdi:waypoint>
+                <omgdi:waypoint x="410.1593625498008" y="110.0"></omgdi:waypoint>
+            </bpmndi:BPMNEdge>
+            <bpmndi:BPMNEdge bpmnElement="startToGenerate" id="BPMNEdge_startToGenerate">
+                <omgdi:waypoint x="103.5" y="195.0"></omgdi:waypoint>
+                <omgdi:waypoint x="210.0" y="195.0"></omgdi:waypoint>
+            </bpmndi:BPMNEdge>
+            <bpmndi:BPMNEdge bpmnElement="evenToEnd" id="BPMNEdge_evenToEnd">
+                <omgdi:waypoint x="460.0" y="103.06878306878306"></omgdi:waypoint>
+                <omgdi:waypoint x="587.3228588030412" y="187.2770230178844"></omgdi:waypoint>
+            </bpmndi:BPMNEdge>
+        </bpmndi:BPMNPlane>
+    </bpmndi:BPMNDiagram>
+</definitions>
