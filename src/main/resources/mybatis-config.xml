@@ -19,6 +19,6 @@
         </environment>
     </environments>
     <mappers>
-        <mapper class="com.olts.activity.api.BlogMapper"/>
+        <mapper class="com.olts.activity.api.SubscriberMapper"/>
     </mappers>
 </configuration>

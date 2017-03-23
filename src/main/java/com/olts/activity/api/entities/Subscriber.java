@@ -4,7 +4,7 @@ package com.olts.activity.api.entities;
  * o.tsoy
  * 23.03.2017
  */
-public class Blog {
+public class Subscriber {
 
     private int id;
     private String name;
@@ -38,7 +38,7 @@ public class Blog {
 
     @Override
     public String toString() {
-        return "Blog{" +
+        return "Subscriber{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", refTariff='" + refTariff + '\'' +

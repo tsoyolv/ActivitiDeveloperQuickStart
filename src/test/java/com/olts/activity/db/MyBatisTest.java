@@ -1,7 +1,7 @@
 package com.olts.activity.db;
 
-import com.olts.activity.api.BlogMapper;
-import com.olts.activity.api.entities.Blog;
+import com.olts.activity.api.SubscriberMapper;
+import com.olts.activity.api.entities.Subscriber;
 import junit.framework.TestCase;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
@@ -26,10 +26,10 @@ public class MyBatisTest extends TestCase {
 
         SqlSession session = sqlSessionFactory.openSession();
         try {
-            BlogMapper mapper = session.getMapper(BlogMapper.class);
-            Blog blog = mapper.selectBlog(2);
-            assertTrue(blog != null);
-            System.out.println(blog);
+            SubscriberMapper mapper = session.getMapper(SubscriberMapper.class);
+            Subscriber subscriber = mapper.selectSubscriber(1);
+            assertTrue(subscriber != null);
+            System.out.println(subscriber);
         } finally {
             session.close();
         }
