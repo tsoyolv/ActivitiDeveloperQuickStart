@@ -1,2 +1,5 @@
 For creating diagram you can use Eclipse plugin, activitiExplorer, or some case application. (https://habrahabr.ru/post/204686/)
 1. if you use User task you must specify candidateGroup.
+
+mybatis
+dependencies org.mybatis + db driver
