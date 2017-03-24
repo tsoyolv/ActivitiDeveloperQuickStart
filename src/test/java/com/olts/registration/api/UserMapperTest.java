@@ -45,8 +45,7 @@ public class UserMapperTest {
         InputStream inputStream = Resources.getResourceAsStream(resource);
         SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
 
-        SqlSession session = sqlSessionFactory.openSession();
-        try {
+        try (SqlSession session = sqlSessionFactory.openSession()) {
             UserMapper mapper = session.getMapper(UserMapper.class);
             User userIvan = new User();
             userIvan.setId(GlobalIdGenerator.generateId());
@@ -61,9 +60,7 @@ public class UserMapperTest {
 
             System.out.println(userIvan);
             System.out.println(userIvan.equals(mapper.selectUser(userIvan.getId())));
-            session.commit();
-        } finally {
-            session.close();
+            //session.commit();
         }
     }
 

@@ -5,7 +5,7 @@
     <groupId>ActivitiDeveloperQuickStart</groupId>
     <artifactId>ActivitiDeveloperQuickStart</artifactId>
     <version>0.0.1</version>
-    <packaging>jar</packaging>
+    <packaging>war</packaging>
 
     <name>ActivitiDeveloperQuickStart</name>
     <url>http://maven.apache.org</url>
@@ -13,42 +13,43 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <org.springframework.version>4.3.5.RELEASE</org.springframework.version>
+        <plugin.tomcat.url>http://localhost:8080/manager/text</plugin.tomcat.url>
+        <plugin.tomcat.server>TomcatServer</plugin.tomcat.server>
+        <web.path>/registerapp</web.path>
     </properties>
 
 
     <build>
 
+        <finalName>registerWebApp</finalName>
+        <sourceDirectory>src/main/java</sourceDirectory>
+        <testSourceDirectory>src/test/java</testSourceDirectory>
+
+        <resources>
+            <resource><directory>src/main/resources</directory></resource>
+        </resources>
+
         <plugins>
 
-            <!-- Maven Assembly Plugin -->
+            <plugin>
+                <groupId>org.apache.tomcat.maven</groupId>
+                <artifactId>tomcat7-maven-plugin</artifactId>
+                <version>2.2</version>
+                <configuration>
+                    <url>${plugin.tomcat.url}</url>
+                    <server>${plugin.tomcat.server}</server>
+                    <path>${web.path}</path>
+                </configuration>
+            </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-assembly-plugin</artifactId>
-                <version>2.4.1</version>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.1</version>
                 <configuration>
-                    <!-- get all project dependencies -->
-                    <descriptorRefs>
-                        <descriptorRef>jar-with-dependencies</descriptorRef>
-                    </descriptorRefs>
-                    <!-- MainClass in mainfest make a executable jar -->
-                    <archive>
-                        <manifest>
-                            <mainClass>com.example.OnboardingRequest</mainClass>
-                        </manifest>
-                    </archive>
+                    <source>1.8</source>
+                    <target>1.8</target>
                 </configuration>
-                <executions>
-                    <execution>
-                        <id>make-assembly</id>
-                        <!-- bind to the packaging phase -->
-                        <phase>package</phase>
-                        <goals>
-                            <goal>single</goal>
-                        </goals>
-                    </execution>
-                </executions>
             </plugin>
-
         </plugins>
 
     </build>
@@ -134,5 +135,10 @@
             <version>21.0</version>
         </dependency>
 
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>4.0.0-b01</version>
+        </dependency>
     </dependencies>
 </project>

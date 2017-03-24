@@ -10,6 +10,6 @@ public class GlobalIdGenerator {
 
     // todo fix to normal unique generation
     public static int generateId() {
-        return UUID.randomUUID().hashCode();
+        return Math.abs(UUID.randomUUID().hashCode());
     }
 }
