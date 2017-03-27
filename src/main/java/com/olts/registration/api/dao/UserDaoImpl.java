@@ -1,5 +1,6 @@
 package com.olts.registration.api.dao;
 
+import com.olts.registration.api.GlobalIdGenerator;
 import com.olts.registration.api.entity.User;
 import com.olts.registration.api.mapper.UserMapper;
 import org.apache.ibatis.io.Resources;
@@ -34,6 +35,7 @@ public class UserDaoImpl implements UserDao {
     public User create(User template) {
         SqlSession sqlSession = retrieveSession();
         UserMapper mapper = sqlSession.getMapper(UserMapper.class);
+        template.setId(GlobalIdGenerator.generateId());
         mapper.insertUser(template);
         sqlSession.commit();
         sqlSession.close();
