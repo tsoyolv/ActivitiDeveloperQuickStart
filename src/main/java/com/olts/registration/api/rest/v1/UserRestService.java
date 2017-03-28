@@ -1,4 +1,4 @@
-package com.olts.registration.api.rest;
+package com.olts.registration.api.rest.v1;
 
 
 import com.olts.registration.api.dao.UserDao;

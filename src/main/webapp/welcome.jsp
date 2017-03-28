@@ -47,7 +47,6 @@
                     <a href="registerServlet">Registered users servlet</a><br>
                     <a href="new-user.jsp" class="btn btn-lg btn-secondary">Create User</a><br>
                     <a href="showRegisters.jsp">Delete User</a><br>
-                    <a href="rest/hello">Hello rest</a><br>
                     <a href="rest/user">User rest</a><br>
                 </p>
             </div>
