@@ -6,7 +6,7 @@
 </head>
 <body>
 <div class="container">
-    <form action="/employee" method="post"  role="form" data-toggle="validator" >
+    <form action="rest/user" method="post"  role="form" data-toggle="validator" >
         <h2>Employee</h2>
         <div class="form-group col-xs-4">
             <label for="name" class="control-label col-xs-4">Name:</label>

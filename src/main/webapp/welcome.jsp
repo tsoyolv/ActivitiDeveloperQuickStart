@@ -44,6 +44,7 @@
                 <h1 class="cover-heading">Registered Users</h1>
                 <p class="lead">
                     <a href="showRegisters.jsp">Show registered users</a><br>
+                    <a href="registerServlet">Registered users servlet</a><br>
                     <a href="new-user.jsp" class="btn btn-lg btn-secondary">Create User</a><br>
                     <a href="showRegisters.jsp">Delete User</a><br>
                     <a href="rest/hello">Hello rest</a><br>

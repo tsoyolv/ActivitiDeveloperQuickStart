@@ -7,3 +7,15 @@ http://howtodoinjava.com/jersey/jersey-2-hello-world-application-tutorial/
 Be careful, Maven do not delete old jars (downloaded before). Use mvn clean for it.
 
 MessageBodyWriter not found for media type=application/json. Add jersey-media-json-jackson to pom
+
+add 	<Resource name="jdbc/TestDB"
+          global="jdbc/TestDB"
+          auth="Container"
+          type="javax.sql.DataSource"
+          driverClassName="com.mysql.jdbc.Driver"
+          url="jdbc:mysql://localhost:3306/registersc?useUnicode=true&amp;useJDBCCompliantTimezoneShift=true&amp;useLegacyDatetimeCode=false&amp;serverTimezone=UTC"
+          username="root"
+          password="1234" />
+to conxtext.xml in tomcat for using jndi     <bean id="dataSource" class="org.springframework.jndi.JndiObjectFactoryBean">
+                                                 <property name="jndiName" value="java:comp/env/jdbc/TestDB"/>
+                                             </bean>

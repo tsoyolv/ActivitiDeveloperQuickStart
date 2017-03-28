@@ -42,7 +42,7 @@
 
             <div class="inner cover">
                 <h1 class="cover-heading">Registered Users</h1>
-                <%= ShowRegisteredUsers.show() %>
+                <%= ShowRegisteredUsers.show(request.getServletContext()) %>
             </div>
 
             <div class="mastfoot">
