@@ -13,7 +13,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Registered Users</title>
+    <title>Habitica</title>
 
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -31,18 +31,30 @@
 
             <div class="masthead clearfix">
                 <div class="inner">
-                    <h3 class="masthead-brand">Registered Users</h3>
+                    <h3 class="masthead-brand">Habitica</h3>
                     <nav class="nav nav-masthead">
-                        <a class="nav-link active" href="#">Home</a>
-                        <a class="nav-link" href="#">Features</a>
-                        <a class="nav-link" href="#">Contact</a>
+                        <a class="nav-link active" href="welcome.jsp">Home</a>
+                        <a class="nav-link" href="#">tab2</a>
+                        <a class="nav-link" href="#">tab3</a>
                     </nav>
                 </div>
             </div>
 
-            <div class="inner cover">
-                <h1 class="cover-heading">Registered Users</h1>
-                <%= ShowRegisteredUsers.show(request.getServletContext()) %>
+
+            <div class="container">
+                <h2>Registered Users Table</h2>
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>First Name</th>
+                        <th>Second Name</th>
+                        <th>Last Name</th>
+                        <th>Age</th>
+                    </tr>
+                    <tbody>
+                    <%= ShowRegisteredUsers.show(request.getServletContext()) %>
+                    </tbody>
+                </table>
             </div>
 
             <div class="mastfoot">

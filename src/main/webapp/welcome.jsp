@@ -12,7 +12,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Registered Users</title>
+    <title>Habitica</title>
 
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -24,14 +24,11 @@
 <body>
 
 <div class="site-wrapper">
-
     <div class="site-wrapper-inner">
-
         <div class="cover-container">
-
             <div class="masthead clearfix">
                 <div class="inner">
-                    <h3 class="masthead-brand">Registered Users</h3>
+                    <h3 class="masthead-brand">Habitica</h3>
                     <nav class="nav nav-masthead">
                         <a class="nav-link active" href="#">Home</a>
                         <a class="nav-link" href="#">tab2</a>
@@ -44,10 +41,8 @@
                 <h1 class="cover-heading">Registered Users</h1>
                 <p class="lead">
                     <a href="show-registers.jsp">Show registered users</a><br>
-                    <a href="register-servlet">Registered users servlet</a><br>
                     <a href="new-user.jsp" class="btn btn-lg btn-secondary">Create User</a><br>
                     <a href="show-registers.jsp">Delete User</a><br>
-                    <a href="rest/user">User rest</a><br>
                 </p>
             </div>
 
@@ -56,11 +51,8 @@
                     <p>Created by <a href="https://github.com/TcoiOleg">TcoiOleg</a>.</p>
                 </div>
             </div>
-
         </div>
-
     </div>
-
 </div>
 
 <!-- Bootstrap core JavaScript

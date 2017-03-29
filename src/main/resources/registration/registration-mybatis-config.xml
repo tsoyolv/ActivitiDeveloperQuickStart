@@ -7,10 +7,15 @@
     <settings>
         <setting name="logImpl" value="LOG4J"/>
     </settings>
-    <environments default="development">
+    <typeAliases> <!-- Shorter name for Java Type -->
+        <package name="com.olts.registration.api.entity"/>
+        <!-- <typeAlias alias="User" type="com.olts.registration.api.entity.User"/> -->
+    </typeAliases>
+
+    <environments default="development"> <!-- can be production etc -->
         <environment id="development">
-            <transactionManager type="JDBC"/>
-            <dataSource type="POOLED">
+            <transactionManager type="JDBC"/> <!-- [JDBC|MANAGED] -->
+            <dataSource type="POOLED"> <!-- [UNPOOLED|POOLED|JNDI] -->
                 <property name="driver" value="${db.driver}"/>
                 <property name="url" value="jdbc:mysql://localhost:3306/registersc?useUnicode=true&amp;useJDBCCompliantTimezoneShift=true&amp;useLegacyDatetimeCode=false&amp;serverTimezone=UTC"/>
                 <property name="username" value="${db.username}"/>

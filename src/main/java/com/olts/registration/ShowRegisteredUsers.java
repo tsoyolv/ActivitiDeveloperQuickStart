@@ -16,11 +16,11 @@ public class ShowRegisteredUsers {
         WebApplicationContext webApplicationContext = (WebApplicationContext) context.getAttribute(WebApplicationContext.ROOT_WEB_APPLICATION_CONTEXT_ATTRIBUTE);
         UserDao userDao = webApplicationContext.getBean("userDao", UserDao.class);
         StringBuilder str = new StringBuilder("");
-        userDao.get().forEach(user -> str.append("<p class=\"lead\">").append(formattedUserString(user)).append("</p>"));
+        userDao.get().forEach(user -> str.append("<tr>").append(formattedUserString(user)).append("</tr>"));
         return str.toString();
     }
 
     private static String formattedUserString(User user) {
-        return user.getFirstName() + " " + user.getSecondName() + " " + user.getLastName() + " " + user.getAge();
+        return "<th>" + user.getFirstName() + "</th><th>" + user.getSecondName() + "</th><th>" + user.getLastName() + "</th><th>" + user.getAge() + "</th>";
     }
 }

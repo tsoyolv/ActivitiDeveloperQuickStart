@@ -1,5 +1,6 @@
 package com.olts.registration.api.dao;
 
+import com.olts.registration.api.dao.impl.UserDaoImpl;
 import com.olts.registration.api.entity.User;
 import org.junit.Test;
 

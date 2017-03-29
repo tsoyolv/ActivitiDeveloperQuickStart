@@ -1,6 +1,7 @@
-package com.olts.registration.api.dao;
+package com.olts.registration.api.dao.impl;
 
 import com.olts.registration.api.GlobalIdGenerator;
+import com.olts.registration.api.dao.UserDao;
 import com.olts.registration.api.entity.User;
 import com.olts.registration.api.mapper.UserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
