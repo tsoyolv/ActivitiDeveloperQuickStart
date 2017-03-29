@@ -16,6 +16,7 @@ import java.util.Collection;
 @Repository("userDao")
 public class UserDaoImpl implements UserDao {
 
+    // autowired usage is properly only with annotations (Service, Component etc.)
     @Autowired @Qualifier("userMapper")
     private UserMapper userMapper;
 

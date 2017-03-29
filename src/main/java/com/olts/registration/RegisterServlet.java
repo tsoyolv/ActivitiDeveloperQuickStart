@@ -14,7 +14,7 @@ import java.io.IOException;
  * o.tsoy
  * 28.03.2017
  */
-@WebServlet("/registerServlet")
+@WebServlet("/register-servlet")
 public class RegisterServlet extends HttpServlet {
 
     @Override

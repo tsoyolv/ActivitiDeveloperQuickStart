@@ -10,6 +10,9 @@ import java.util.Collection;
  * 24.03.2017
  */
 public class UserDaoImplTest {
+
+    private UserDaoImpl userDao = new UserDaoImpl();
+
     @Test
     public void get() throws Exception {
 
@@ -17,7 +20,6 @@ public class UserDaoImplTest {
 
     @Test
     public void get1() throws Exception {
-        UserDao userDao = new UserDaoImpl();
         Collection<User> users = userDao.get();
         System.out.println(users);
     }

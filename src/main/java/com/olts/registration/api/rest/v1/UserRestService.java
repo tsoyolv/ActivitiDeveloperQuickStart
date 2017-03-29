@@ -21,6 +21,7 @@ import java.util.Collection;
 @Service
 public class UserRestService {
 
+    // autowired usage is properly only with annotations (Service, Component etc.)
     @Autowired @Qualifier("userDao")
     private UserDao userDao;
     

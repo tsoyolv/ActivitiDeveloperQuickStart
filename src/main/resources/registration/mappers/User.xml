@@ -1,0 +1,27 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.olts.registration.api.mapper.UserMapper">
+
+    <resultMap id="result" type="com.olts.registration.api.entity.User">
+        <result property="firstName" column="first_name"/>
+        <result property="secondName" column="second_name"/>
+        <result property="lastName" column="last_name"/>
+    </resultMap>
+
+    <select id="selectUsers" resultMap="result">
+        SELECT * FROM user
+    </select>
+
+    <select id="selectUser" resultMap="result">
+        SELECT * FROM user WHERE id = #{id}
+    </select>
+
+    <insert id="insertUser">
+        INSERT into user(id, login, password, first_name, second_name, last_name, age)
+         VALUES(#{id}, #{login}, #{password}, #{firstName}, #{secondName}, #{lastName}, #{age})
+    </insert>
+
+    <delete id="deleteUser">
+        DELETE FROM user WHERE id =#{id}
+    </delete>
+</mapper>
