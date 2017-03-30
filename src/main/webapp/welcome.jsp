@@ -40,9 +40,9 @@
             <div class="inner cover">
                 <h1 class="cover-heading">Registered Users</h1>
                 <p class="lead">
-                    <a href="show-registers.jsp">Show registered users</a><br>
-                    <a href="new-user.jsp" class="btn btn-lg btn-secondary">Create User</a><br>
-                    <a href="show-registers.jsp">Delete User</a><br>
+                    <a href="user">Show registered users</a><br>
+                    <a href="user/create" class="btn btn-lg btn-secondary">Create User</a><br>
+                    <a href="user">Delete User</a><br>
                 </p>
             </div>
 

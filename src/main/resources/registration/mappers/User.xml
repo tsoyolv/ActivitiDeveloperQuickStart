@@ -24,4 +24,9 @@
     <delete id="deleteUser">
         DELETE FROM user WHERE id =#{id}
     </delete>
+    <cache
+        eviction="FIFO"
+        flushInterval="60000"
+        size="512"
+        readOnly="true"/> <!-- LRU, FIFO, SOFT, WEAK -->
 </mapper>
