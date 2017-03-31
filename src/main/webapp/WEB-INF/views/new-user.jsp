@@ -8,10 +8,10 @@
     <title>Habitica</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="../../css/bootstrap.min.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="../../css/cover.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/css/cover.css" rel="stylesheet">
 </head>
 
 <body>
@@ -23,7 +23,7 @@
                 <div class="inner">
                     <h3 class="masthead-brand">Habitica</h3>
                     <nav class="nav nav-masthead">
-                        <a class="nav-link active" href="../../welcome.jsp">Home</a>
+                        <a class="nav-link active" href="${pageContext.request.contextPath}/welcome.jsp">Home</a>
                         <a class="nav-link" href="#">tab2</a>
                         <a class="nav-link" href="#">tab3</a>
                     </nav>
@@ -31,7 +31,7 @@
             </div>
 
             <div class="container">
-                <form action="/user" method="post" data-toggle="validator" >
+                <form action="${pageContext.request.contextPath}/user" method="post" data-toggle="validator" >
                     <h2>User</h2>
                     <div class="form-group col-xs-4">
                         <label for="firstName" class="control-label col-xs-4">First name:</label>
@@ -70,6 +70,6 @@
 ================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->
 <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
-<script src="../../js/bootstrap.min.js"></script>
+<script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
 </body>
 </html>

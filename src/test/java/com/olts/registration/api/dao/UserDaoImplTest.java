@@ -1,10 +1,7 @@
 package com.olts.registration.api.dao;
 
 import com.olts.registration.api.dao.impl.UserDaoImpl;
-import com.olts.registration.api.entity.User;
 import org.junit.Test;
-
-import java.util.Collection;
 
 /**
  * o.tsoy
@@ -21,8 +18,8 @@ public class UserDaoImplTest {
 
     @Test
     public void get1() throws Exception {
-        Collection<User> users = userDao.get();
-        System.out.println(users);
+       /* Collection<User> users = userDao.get();
+        System.out.println(users);*/
     }
 
     @Test

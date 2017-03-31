@@ -41,8 +41,7 @@ public class UserController {
 
     @RequestMapping(value = "/user", method = RequestMethod.POST)
     public String create(User user, ModelMap model) {
-        userDao.create(user);
-        model.addAttribute("user", user);
+        model.addAttribute("user", userDao.create(user));
         return "user";
     }
 }
