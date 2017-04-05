@@ -23,7 +23,7 @@
                 <div class="inner">
                     <h3 class="masthead-brand">Habitica</h3>
                     <nav class="nav nav-masthead">
-                        <a class="nav-link active" href="${pageContext.request.contextPath}/welcome.jsp">Home</a>
+                        <a class="nav-link active" href="${pageContext.request.contextPath}/">Home</a>
                         <a class="nav-link" href="#">tab2</a>
                         <a class="nav-link" href="#">tab3</a>
                     </nav>
